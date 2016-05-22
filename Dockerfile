@@ -6,7 +6,7 @@ COPY gradle /tmp/gradle
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends curl openjdk-7-jdk \
-        lib32stdc++6 lib32z1 && \
+        lib32stdc++6 lib32z1 git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /opt && \
@@ -16,5 +16,7 @@ RUN apt-get update && \
         platform-tools,tools,build-tools-23.0.3,android-23,extra-google-google_play_services,addon-google_apis-google-23,extra-android-m2repository,extra-google-m2repository && \
     /tmp/gradle/gradlew -h && \
     mkdir -p /build
+
+COPY gradle.properties /root/.gradle/
 
 CMD cd /repo && ./gradlew --project-cache-dir /build/.gradle assembleDebug
