@@ -14,6 +14,7 @@ RUN apt-get update && \
     curl "https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz" | tar xz && \
     echo y | /opt/android-sdk-linux/tools/android update sdk --all -u --filter \
         platform-tools,tools,build-tools-23.0.3,android-23,extra-google-google_play_services,addon-google_apis-google-23,extra-android-m2repository,extra-google-m2repository && \
-    /tmp/gradle/gradlew -h
+    /tmp/gradle/gradlew -h && \
+    mkdir -p /build
 
-CMD cd /repo && ./gradlew assembleDebug
+CMD cd /repo && ./gradlew --project-cache-dir /build/.gradle assembleDebug
