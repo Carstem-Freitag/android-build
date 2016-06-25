@@ -20,3 +20,10 @@ RUN apt-get update && \
     echo y | /opt/android-sdk-linux/tools/android update sdk --all -u --filter \
         platform-tools,tools,build-tools-24,android-23,extra-google-google_play_services,addon-google_apis-google-23,extra-android-m2repository,extra-google-m2repository && \
     /tmp/gradle/gradlew -h
+
+RUN mkdir -p /build
+COPY gradle.properties /root/.gradle/
+
+VOLUME /build
+
+CMD cd /repo && ./gradlew --project-cache-dir /build/.gradle assembleDebug
