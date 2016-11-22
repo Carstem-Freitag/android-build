@@ -19,6 +19,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /opt && \
     cd /opt && \
-    curl "https://dl.google.com/android/android-sdk_r$SDK_VERSION-linux.tgz" | tar xz && \
+    curl "https://dl.google.com/android/android-sdk_r$ANDROID_SDK_VERSION-linux.tgz" | tar xz && \
     echo y | /opt/android-sdk-linux/tools/android update sdk --all -u --filter $ANDROID_PKGS && \
     /tmp/gradle/gradlew -h
