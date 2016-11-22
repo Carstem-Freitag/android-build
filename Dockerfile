@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 ENV ANDROID_HOME=/opt/android-sdk-linux
 
 ARG ANDROID_SDK_VERSION=24.4.1
-ARG ANDROID_PKGS=platform-tools,tools,build-tools-25.0.0,android-23,extra-google-google_play_services,addon-google_apis-google-23,extra-android-m2repository,extra-google-m2repository
+ARG ANDROID_PKGS=platform-tools,tools,build-tools-25.0.0,build-tools-24.0.1,android-23,extra-google-google_play_services,addon-google_apis-google-23,extra-android-m2repository,extra-google-m2repository
 
 COPY gradle /tmp/gradle
 
