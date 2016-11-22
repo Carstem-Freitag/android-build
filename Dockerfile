@@ -13,7 +13,7 @@ RUN apt-get update && \
         git \
         lib32stdc++6 \
         lib32z1 \
-        openjdk-7-jdk \
+        openjdk-8-jdk \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
