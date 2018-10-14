@@ -26,4 +26,4 @@ RUN URL=$(curl https://developer.android.com/studio/ | perl -nE 'm(href="([^"]+/
 
 COPY packages.lst /tmp/
 RUN yes | /opt/android-sdk-linux/tools/bin/sdkmanager --licenses \
-    && /opt/android-sdk-linux/tools/bin/sdkmanager --package_file=/tmp/packages.lst
+    && xargs -a /tmp/packages.lst /opt/android-sdk-linux/tools/bin/sdkmanager --install
