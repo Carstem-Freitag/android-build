@@ -17,7 +17,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
-RUN URL=$(curl https://developer.android.com/studio/index.html | perl -nE 'm(href="([^"]+/sdk-tools-linux-[^"]+)") && say $1') \
+RUN URL=$(curl https://developer.android.com/studio/ | perl -nE 'm(href="([^"]+/sdk-tools-linux-[^"]+)") && say $1') \
     && curl -o /tmp/sdk.zip "$URL" \
     && mkdir -p $ANDROID_HOME \
     && cd $ANDROID_HOME \
